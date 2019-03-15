@@ -1,44 +1,38 @@
 import React, {Component} from 'react';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+  } from 'react-router-dom'
 
-import Table from './Table';
-import Form from './Form';
+import TablePlayground from './pages/TablePlayground';
+import ApiInteraction from './pages/ApiInteraction'; 
 
 class App extends Component{
 
-    state = {
-        characters: []
-    };
-
-    removeCharacter = index => {
-        const { characters } = this.state;
-
-        this.setState({
-            characters: characters.filter((character, i) => {
-                return i !== index;
-            })
-        });
-    }
-
-    handleSubmit = character => {
-        this.setState(
-            {
-                characters: [...this.state.characters, character]
-            }
-        );
-    }
-
     render() {
-        
-        const { characters } = this.state;
-
         return (
-            <div className="container">
-                <Table 
-                    characterData={characters}
-                    removeCharacter={this.removeCharacter} 
-                />
-                <Form handleSubmit={this.handleSubmit} />
-            </div>
+            <Router>
+                <div className="App">
+                    <div className="container">
+                        <ul>
+                            <li>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/table-playground">Table Playground</Link>
+                            </li>
+                            <li>
+                                <Link to="/api-interaction">Api Interaction</Link>
+                            </li>
+                        </ul>
+                    <hr/>
+                        <Route path="/" />
+                        <Route path="/table-playground" component={TablePlayground} />
+                        <Route path="/api-interaction" component={ApiInteraction} />
+                    </div>
+                </div>
+            </Router>
         );
     }
 

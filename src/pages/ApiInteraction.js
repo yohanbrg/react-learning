@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
-class App extends Component {
+class ApiInteraction extends Component {
 
     state = {
         data: []
     };
-
 
     componentDidMount() {
         const url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=Seona+Dancing&format=json&origin=*";
@@ -32,4 +31,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default ApiInteraction;
