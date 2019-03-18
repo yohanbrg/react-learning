@@ -6,7 +6,8 @@ import {
   } from 'react-router-dom'
 
 import TablePlayground from './pages/TablePlayground';
-import ApiInteraction from './pages/ApiInteraction'; 
+import ApiInteraction from './pages/ApiInteraction';
+import TicTacToe from './pages/TicTacToe'; 
 
 class App extends Component{
 
@@ -25,11 +26,15 @@ class App extends Component{
                             <li>
                                 <Link to="/api-interaction">Api Interaction</Link>
                             </li>
+                            <li>
+                                <Link to="/tic-tac-toe">Tic Tac Toe</Link>
+                            </li>
                         </ul>
                     <hr/>
                         <Route path="/" />
                         <Route path="/table-playground" component={TablePlayground} />
                         <Route path="/api-interaction" component={ApiInteraction} />
+                        <Route path="/tic-tac-toe" component={TicTacToe} />
                     </div>
                 </div>
             </Router>
